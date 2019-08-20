@@ -23,9 +23,18 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+                "node_modules/bootstrap/dist/css/bootstrap.min.css",
+                "src/app-loading.css",
+                "src/assets/css/toastr/toastr.css",
+                "src/styles.css",
+                "src/assets/fonts/fontAwesome/css/all.min.css",
+                "src/assets/fonts/fontAwesome/css/fontawesome.min.css",
+                "src/assets/fonts/fontAwesome/css/brands.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {

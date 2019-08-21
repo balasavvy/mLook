@@ -25,6 +25,8 @@ export class CommonTemplateComponent implements OnInit,OnChanges {
   _renderData: any[];
   masterSelected:boolean;
   checkedList: any[];
+  enableOptions: boolean;
+  enableAllOptions: boolean;
   constructor(private dataService:DataServiceService) {
     this._ngxDefault.push(this.items[0].id);
    
@@ -105,10 +107,19 @@ export class CommonTemplateComponent implements OnInit,OnChanges {
   getCheckedItemList() {
     this.checkedList = [];
     for (var i = 0; i < this._renderData.length; i++) {
-      if(this._renderData[i].isSelected  && !this._renderData[i].disable)
-      this._renderData.push(this._renderData[i]);
+      if(this._renderData[i].isSelected)
+      this.checkedList.push(this._renderData[i]);
     }
-    console.log( this.checkedList)
+    if(this.checkedList.length){
+      this.enableOptions=true;
+        if(this.checkedList.length == this._renderData.length){
+          this.enableAllOptions=true;
+        }else{
+          this.enableAllOptions=false;
+        }
+    }else{
+      this.enableOptions=false;
+    }
   }
   
     sortByDate(){
@@ -142,7 +153,7 @@ export class CommonTemplateComponent implements OnInit,OnChanges {
          this.dataService.someProp.next('some value1');
     }
 
-    selectAll(list) {
+    selectAll() {
       for(let i = 0; i < this._renderData.length; i++){
         if( !this._renderData[i].disable){
           this._renderData[i].isSelected = this.masterSelected;

@@ -1,8 +1,24 @@
 <div class="top-bar position-none">
 <div class="top-mini-bar">
     <div class="top-mini-bar-ct">
-        <ul class="list-inline">
-          <li>Mark All As Read</li>
+        <ul class="list-inline" *ngIf="enableOptions">
+          <li class="list-inline-item" *ngIf="enableAllOptions">Mark All As Read</li>
+          <li class="list-inline-item"  *ngIf="!enableAllOptions">Mark As Read</li>
+          <li  class="list-inline-item" *ngIf="enableAllOptions">Mark All As UnRead</li>
+          <li class="list-inline-item"  *ngIf="!enableAllOptions">Mark As UnRead</li>
+          <li class="list-inline-item dropdown"  >
+             
+                  <div class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+                  Move To
+                  </div>
+                  <div class="dropdown-menu">
+                    <div class="dropdown-item" >Inbox</div>
+                    <div class="dropdown-item" >Spam</div>
+                  </div>
+            
+        </li>
+          <li class="list-inline-item"  *ngIf="enableAllOptions">Delete All</li>
+          <li  class="list-inline-item" *ngIf="!enableAllOptions">Delete</li>
         </ul>
     </div>
 </div>
@@ -18,7 +34,7 @@
            <div class="min-header">
             
                <div class="selectAll custom-control custom-checkbox mb-3">
-                  <input   [(ngModel)]="masterSelected"   (change)=selectAll(_renderData) type="checkbox" class="custom-control-input" id="selectAll" name="selectAll">
+                  <input   [(ngModel)]="masterSelected"   (change)=selectAll() type="checkbox" class="custom-control-input" id="selectAll" name="selectAll">
                   <label class="custom-control-label" for="selectAll">&nbsp;</label>
                </div>
                  

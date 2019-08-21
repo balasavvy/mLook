@@ -11,6 +11,10 @@ import { SpamComponent } from './spam/spam.component';
 import { DeletedComponent } from './deleted/deleted.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule }    from '@angular/common/http';
+import { PerfectScrollbarModule, PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  wheelPropagation: true
+};
 @NgModule({
   declarations: [LayoutComponent, HeaderComponent, MainComponent, SidebarComponent, InboxComponent, SpamComponent, DeletedComponent],
   imports: [
@@ -18,9 +22,17 @@ import { HttpClientModule }    from '@angular/common/http';
     BrowserModule,
     HttpClientModule,
     LayoutRoutingModule,
+    
+    PerfectScrollbarModule,
   ],
   exports: [
     LayoutComponent
   ],
+  providers:[
+    {
+      provide: PERFECT_SCROLLBAR_CONFIG,
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+    },
+  ]
 })
 export class LayoutModule { }

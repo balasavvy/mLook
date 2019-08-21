@@ -24,6 +24,7 @@
             ],
             "styles": [
                 "node_modules/bootstrap/dist/css/bootstrap.min.css",
+                "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
                 "src/app-loading.css",
                 "src/assets/css/toastr/toastr.css",
                 "src/styles.css",

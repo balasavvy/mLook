@@ -27,3 +27,41 @@
     width: 4px;
     border-left: 1px solid #e5e3e3;
 }
+.item-con{
+    color: #333;
+    line-height: 20px
+}
+.subject{
+    font-size: 12px;
+}
+.min-content{
+    color: #666;
+    font-size: 12px;
+    margin: 0px 45px 0 0;
+    width: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.recipent-name{
+    font-size: 17px;
+    font-weight: normal;
+    width: 70%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.rowitems{
+    padding: 10px;
+    padding-left: 30px
+}
+.rowitems.active{
+    background-color: #eaeaea
+}
+.rowitems.clickActive{
+    background-color: #A9C1D6 !important
+}
+.checkbtn{
+    position: absolute;
+    left: 10px;
+}

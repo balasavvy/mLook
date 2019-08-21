@@ -1,3 +1,36 @@
-<p>
-  inbox works!
-</p>
+<section class="content">
+<div class="split-left">
+
+  <section class="lists">
+    <ul>
+      <li *ngFor="let item of inBoxData" (click)="previewFn(item)">
+        <div class="item-con">
+            <div class="recipent-name">{{item.name}}</div>
+            <div class="subject">{{item.subject}}</div>
+            <div class="min-content">{{item.content}}</div>
+        </div>
+
+      </li>
+    </ul>
+  </section>
+
+</div>
+<div class="splitter">
+
+</div>
+<div class="split-right">
+<!--content-->
+<ng-container *ngIf="preview && displayView">
+  <div class="subject">
+      {{displayView.subject}}
+  </div>
+  <div class="header">
+
+  </div>
+</ng-container>
+<ng-container *ngIf="!preview">
+    Select an item to read
+</ng-container>
+</div>
+
+</section>

@@ -7,13 +7,21 @@ import { DataServiceService } from 'src/app/services/data-service.service';
   styleUrls: ['./inbox.component.css']
 })
 export class InboxComponent implements OnInit {
-
+  inBoxData: any;
+  preview:boolean;
+  displayView: any;
   constructor(private dataService:DataServiceService) { }
 
   ngOnInit() {
-      
-        console.log(this.dataService.getInpoxData());
+      this.inBoxData=this.dataService.getInBoxData;
+        
      
   }
-  
+  previewFn(item){
+    this.preview =true;
+    this.renderItem(item)
+  }
+  renderItem(item: any) {
+   this.displayView = item
+  }
 }

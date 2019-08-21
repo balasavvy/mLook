@@ -13,10 +13,10 @@ export class DataServiceService {
   constructor(  private http: HttpClient,) { 
   
   }
-  set getInpoxData(val){
+  set getInBoxData(val){
     this.inboxData = val;
   }
-  get  getInpoxData(){
+  get  getInBoxData(){
     return this.inboxData;
   }
 

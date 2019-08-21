@@ -11,7 +11,8 @@ export class CommonTemplateComponent implements OnInit,OnChanges {
   @Input('folder') folder;
   @Output() sendData : EventEmitter<any> = new EventEmitter();
   @Output() sendFlagData : EventEmitter<any> = new EventEmitter();
-  
+  @Output() sendReadData : EventEmitter<any> = new EventEmitter();
+  public now: Date = new Date();
   inBoxData: any;
   preview:boolean;
   displayView: any;
@@ -29,7 +30,9 @@ export class CommonTemplateComponent implements OnInit,OnChanges {
   enableAllOptions: boolean;
   constructor(private dataService:DataServiceService) {
     this._ngxDefault.push(this.items[0].id);
-   
+    setInterval(() => {
+      this.now = new Date();
+    }, 1);
    }
   public items= [{
     "id":'all',
@@ -143,9 +146,12 @@ export class CommonTemplateComponent implements OnInit,OnChanges {
         this.sendFlagData.emit(this._renderData);
     }
     deleteMsg(item,event){
-      this.dataService.getDeletedData =item; //push the data to existing array
-      let deleteObj=this.dataService.deletedData; //get the data from array
-      this.dataService.mailRData=deleteObj //set into storage
+      if(this.folder !== 'deleted'){
+        this.dataService.getDeletedData =item; //push the data to existing array
+        let deleteObj=this.dataService.deletedData; //get the data from array
+        this.dataService.mailRData=deleteObj //set into storage
+      }
+     
 
       //update current mailbox
       let $currentData =  this._renderData.filter(function(obj){
@@ -157,12 +163,14 @@ export class CommonTemplateComponent implements OnInit,OnChanges {
     }
     deleteOption(event){
       let checkedlist=this.checkedList;
+      if(this.folder !== 'deleted'){
       for(let i=0;i<checkedlist.length;i++){
         let item =checkedlist[i];
         this.dataService.getDeletedData =item; //push the data to existing array
         let deleteObj=this.dataService.deletedData; //get the data from array
         this.dataService.mailRData=deleteObj //set into storage      
       }
+    }
       let result  = this._renderData.filter(({ mId: id1 }) => !checkedlist.some(({ mId: id2 }) => id2 === id1));;
      
       this.sendData.emit(result);
@@ -188,7 +196,7 @@ export class CommonTemplateComponent implements OnInit,OnChanges {
           }          
         });
       }
-      this.sendData.emit( this._renderData);
+      this.sendReadData.emit( this._renderData);
       this.dataService.someProp.next('some value1');
       this.masterSelected=false;
     }
@@ -202,7 +210,7 @@ export class CommonTemplateComponent implements OnInit,OnChanges {
           }          
         });
       }
-     this.sendData.emit( this._renderData);
+     this.sendReadData.emit( this._renderData);
     this.dataService.someProp.next('some value1');
     this.masterSelected=false;
     }

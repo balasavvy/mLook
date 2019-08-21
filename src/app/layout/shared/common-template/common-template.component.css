@@ -192,10 +192,21 @@ padding-left:10px
     height: 100%;
     border-left: 1px solid #e5e3e3;
 }
+.topLists li{
+    margin-right:15px
+}
+.topLists{
+    margin:0
+}
 .top-mini-bar-ct{
     height: 100%;
     padding-left: 15px;
     background-color: #E6EDF3;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 15px;
 }
 .position-none{
     position: absolute;

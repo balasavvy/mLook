@@ -64,3 +64,9 @@ html {
   .pt-20{
     padding-top:20px
   }
+  .pb-20{
+    padding-top:20px
+  }
+  .btn-default{
+    background: #eaeaea
+  }

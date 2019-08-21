@@ -1,1 +1,24 @@
-<common-template [data]="deletedData" [folder]="'deleted'"></common-template>
+<common-template (sendReadData)="sendReadData($event)" (sendData)="sendData($event)"  [data]="deletedData" [folder]="'deleted'"></common-template>
+
+<ng-template #deleteConfirm>
+
+        <div class="modal-body shaker">
+          <div class="row">
+            <div class="col-12">
+              <h5 class="title pb-20">Do you want to permanently delete the selected items?</h5>
+              
+            </div>
+          </div>
+          <div class="row mt15 justify-content-center">
+            <div class="col-12 text-center d-flex  align-items-center justify-content-center">
+                        <div class="form-group btns">
+                        <button class="btn btn-primary" (click)="submitModal()">Ok</button>
+                        </div>
+                        <div class="form-group btns">
+                        <button class="btn btn-default" (click)="hideModal()">Cancel</button>
+                        </div>
+            
+            </div>
+          </div>
+        </div>
+      </ng-template>

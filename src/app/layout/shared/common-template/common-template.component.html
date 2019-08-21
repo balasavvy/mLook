@@ -1,14 +1,21 @@
 <div class="top-bar position-none">
 <div class="top-mini-bar">
     <div class="top-mini-bar-ct">
-        <ul class="list-inline" *ngIf="enableOptions">
-          <li class="list-inline-item" *ngIf="enableAllOptions"  (click)="markread($event)">Mark All As Read</li>
-          <li class="list-inline-item"  *ngIf="!enableAllOptions"  (click)="markread($event)">Mark As Read</li>
-          <li  class="list-inline-item" *ngIf="enableAllOptions"  (click)="markunread($event)">Mark All As UnRead</li>
-          <li class="list-inline-item"  *ngIf="!enableAllOptions"  (click)="markunread($event)">Mark As UnRead</li>
+        <div class="time">
+            {{now | date}} &nbsp;{{now | date: 'mediumTime'}}
+        </div>
+        <ul class="list-inline topLists" *ngIf="enableOptions">
+          <li class="list-inline-item" *ngIf="enableAllOptions"  (click)="markread($event)">
+              <i class="fas fa-envelope-open"></i>&nbsp;Mark All As Read</li>
+          <li class="list-inline-item"  *ngIf="!enableAllOptions"  (click)="markread($event)">
+              <i class="fas fa-envelope-open"></i>&nbsp;Mark As Read</li>
+          <li  class="list-inline-item" *ngIf="enableAllOptions"  (click)="markunread($event)">
+              <i class="fas fa-envelope"></i>&nbsp;Mark All As UnRead</li>
+          <li class="list-inline-item"  *ngIf="!enableAllOptions"  (click)="markunread($event)">
+              <i class="fas fa-envelope"></i>&nbsp;Mark As UnRead</li>
           <li class="list-inline-item dropdown"  >
              
-                  <div class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+                  <div class="dropdown-toggle" id="navbardrop" data-toggle="dropdown">
                   Move To
                   </div>
                   <div class="dropdown-menu">
@@ -20,6 +27,7 @@
           <li class="list-inline-item"  *ngIf="enableAllOptions" (click)="deleteOption($event)">Delete All</li>
           <li  class="list-inline-item" *ngIf="!enableAllOptions" (click)="deleteOption($event)">Delete</li>
         </ul>
+       
     </div>
 </div>
 </div>

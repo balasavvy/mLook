@@ -1,12 +1,12 @@
 <div class="row">
   <div class="col-12">
-    <div class="nav leftSidebar">
+    <div class="nav leftSidebar pt-20">
       <div class="item">
-       <h6>
+       <h6 class="pl-20">
          <span  (click)="showFolders()">
            <i [ngClass]="{'fa-chevron-up':isFolder,'fa-chevron-down':!isFolder}" class="fas fa-chevron-down"></i> 
-        Folders</span>
-        <span (click)=newFolder($event)><i class="fas fa-plus"></i></span>
+        &nbsp;Folders</span>
+        <!-- <span (click)=newFolder($event)><i class="fas fa-plus"></i></span> -->
       </h6>
        <nav class="folders"  [ngClass]="{'show':isFolder,'hide':!isFolder}">
          <ul class="list-group">

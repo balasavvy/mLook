@@ -12,16 +12,17 @@ export class InboxComponent implements OnInit {
   displayView: any;
   isItem=[];
   isPreviewItem: any=[];
+  searchText;
   constructor(private dataService:DataServiceService) { }
 
   ngOnInit() {
       this.inBoxData=this.dataService.getInBoxData;
         
-     
   }
   previewFn(item){
     this.preview =true;
     this.renderItem(item);
+    this.isPreviewItem=[];
     this.isPreviewItem[item.mId]=true;
   }
   renderItem(item: any) {

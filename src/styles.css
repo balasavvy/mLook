@@ -58,3 +58,9 @@ html {
   ::-moz-placeholder {
     color: #999999
   }
+  .pl-20{
+    padding-left:20px
+  }
+  .pt-20{
+    padding-top:20px
+  }

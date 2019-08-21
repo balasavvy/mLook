@@ -14,6 +14,7 @@ import { HttpClientModule }    from '@angular/common/http';
 import { PerfectScrollbarModule, PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { CustomFolderComponent } from './custom/custom.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   wheelPropagation: true
 };
@@ -27,7 +28,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     LayoutRoutingModule,
     ModalModule.forRoot(),
     PerfectScrollbarModule,
-    FormsModule
+    FormsModule,
+    Ng2SearchPipeModule  
   ],
   exports: [
     LayoutComponent

@@ -43,6 +43,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.min-content br {
+    display: none;
+}
 .recipent-name{
     font-size: 17px;
     font-weight: normal;
@@ -64,4 +67,81 @@
 .checkbtn{
     position: absolute;
     left: 10px;
+}
+.search-box {
+    padding: 20px 10px 10px 0px;
+    padding-left: 30px;
+}
+.split-right {
+    padding: 20px;
+}
+.right_content{
+    color: #333;
+}
+.right_content .subject{
+    font-size: 21px;
+    padding-bottom: 20px
+}
+.mail-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eaeaea;
+}
+.circleContent{
+
+    background-color: rgb(118, 118, 118);
+    outline-color: rgb(118, 118, 118);
+}
+
+li.rowitems.unread .subject{
+    color: #004B8B;
+    font-weight: bold
+}
+
+li.rowitems.unread{    border-left: 4px solid #004B8B;}
+.circle{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    box-sizing: content-box;
+    overflow: hidden;
+    font-size: 15px;
+    text-align: center;
+    line-height: 50px;
+    color: #fff;
+}
+.msginfo{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0;
+}
+.msginfo ul{
+    margin:0;
+    list-style: none;
+    padding: 0;
+}
+.msginfo {
+    width: 100%;
+}
+.msginfo  .recipent-name{
+padding-left:10px
+}
+.mail-body{
+    display: flex;
+    justify-content: center;
+    padding-top:40px;
+}
+.mail-body.empty{
+    min-height:100%;
+    align-items: center;
+    color: #004b8b;
+    display: flex;
+    flex-direction: column;
+}
+.envelope{
+    font-size: 12rem;
+
 }

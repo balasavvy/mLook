@@ -16,6 +16,12 @@
               <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Search Current Mailbox">
            </div>
            <div class="min-header">
+            
+               <div class="selectAll custom-control custom-checkbox mb-3">
+                  <input   [(ngModel)]="masterSelected"   (change)=selectAll(_renderData) type="checkbox" class="custom-control-input" id="selectAll" name="selectAll">
+                  <label class="custom-control-label" for="selectAll">&nbsp;</label>
+               </div>
+                 
              <div class="sortby">
                <p (click)="sortByDate()">Sort By Date <i [ngClass]="{'fa-long-arrow-alt-down':_isAsc,'fa-long-arrow-alt-up':!_isAsc}" class="fas "></i></p>
              </div>
@@ -30,9 +36,9 @@
              
           <ng-container  *ngFor="let item of _renderData | filter:searchText" >
              
-          <li class="rowitems" [ngClass]="{'active':isItem[item.mId],'clickActive':isPreviewItem[item.mId],'unread':item.unread}" (mouseleave)="mouseInActive(item,$event)" (mouseenter)="mouseActive(item,$event)" >
-              <div *ngIf="isItem[item.mId] || isPreviewItem[item.mId]" class="custom-control checkbtn custom-checkbox mb-3">
-                  <input (change)="checkValue(item,$event)" type="checkbox" class="custom-control-input" id="{{item.mId}}" name="example1">
+          <li class="rowitems" [ngClass]="{'active':isItem[item.mId],'clickActive':isPreviewItem[item.mId] || item.isSelected,'unread':item.unread}" (mouseleave)="mouseInActive(item,$event)" (mouseenter)="mouseActive(item,$event)" >
+              <div *ngIf="isItem[item.mId] || isPreviewItem[item.mId] || item.isSelected" class="custom-control checkbtn custom-checkbox mb-3">
+                  <input [(ngModel)]="item.isSelected" (change)="checkValue(item,$event)" type="checkbox" class="custom-control-input" id="{{item.mId}}" name="example1">
                   <label class="custom-control-label" for="{{item.mId}}">&nbsp;</label>
                 </div>
               <div class="custom-actions">

@@ -23,6 +23,8 @@ export class CommonTemplateComponent implements OnInit,OnChanges {
   _dataBp: any[];
   _isData: boolean=false;
   _renderData: any[];
+  masterSelected:boolean;
+  checkedList: any[];
   constructor(private dataService:DataServiceService) {
     this._ngxDefault.push(this.items[0].id);
    
@@ -95,8 +97,19 @@ export class CommonTemplateComponent implements OnInit,OnChanges {
      }else{
       this.isPreviewItem[item.mId]=false;
      }
-   
+     this.masterSelected = this._renderData.every(function(item:any) {
+      return item.isSelected == true
+    })
+    this.getCheckedItemList();
    }
+  getCheckedItemList() {
+    this.checkedList = [];
+    for (var i = 0; i < this._renderData.length; i++) {
+      if(this._renderData[i].isSelected  && !this._renderData[i].disable)
+      this._renderData.push(this._renderData[i]);
+    }
+    console.log( this.checkedList)
+  }
   
     sortByDate(){
       this._isAsc= this._isAsc?false:true;
@@ -127,5 +140,15 @@ export class CommonTemplateComponent implements OnInit,OnChanges {
         });        
          this.sendData.emit($currentData);
          this.dataService.someProp.next('some value1');
+    }
+
+    selectAll(list) {
+      for(let i = 0; i < this._renderData.length; i++){
+        if( !this._renderData[i].disable){
+          this._renderData[i].isSelected = this.masterSelected;
+        }
+       
+      }
+      this.getCheckedItemList();
     }
 }

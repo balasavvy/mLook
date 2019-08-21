@@ -58,7 +58,11 @@
 }
 .rowitems{
     padding: 10px;
-    padding-left: 30px
+    padding-left: 30px;
+    position: relative;
+}
+.flagged{
+    color:#a80000
 }
 .rowitems.active{
     background-color: #eaeaea

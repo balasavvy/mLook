@@ -33,5 +33,5 @@
     </div>
     
     </section> -->
-
-    <common-template (sendData)="sendData($event)" [data]="spamData" [folder]="'spam'"></common-template>
+    
+    <common-template  (sendFlagData)="sendFlagData($event)" (sendData)="sendData($event)" [data]="spamData" [folder]="'spam'"></common-template>

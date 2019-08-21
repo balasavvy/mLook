@@ -10,7 +10,8 @@ export class CommonTemplateComponent implements OnInit,OnChanges {
   @Input('data') _data;
   @Input('folder') folder;
   @Output() sendData : EventEmitter<any> = new EventEmitter();
- 
+  @Output() sendFlagData : EventEmitter<any> = new EventEmitter();
+  
   inBoxData: any;
   preview:boolean;
   displayView: any;
@@ -106,10 +107,16 @@ export class CommonTemplateComponent implements OnInit,OnChanges {
       }     
     }
     flagMsg(item,event){
-      console.log("flag");
+      console.log("flag");  
+        this._renderData.forEach((obj, i) => {
+          if(obj.mId == item.mId){
+            obj.flagged = obj.flagged?false:true
+          }          
+        });
+        
+        this.sendFlagData.emit(this._renderData);
     }
     deleteMsg(item,event){
-      console.log(item);
       this.dataService.getDeletedData =item; //push the data to existing array
       let deleteObj=this.dataService.deletedData; //get the data from array
       this.dataService.mailRData=deleteObj //set into storage

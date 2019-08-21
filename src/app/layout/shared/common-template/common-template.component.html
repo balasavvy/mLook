@@ -35,14 +35,15 @@
                   <input (change)="checkValue(item,$event)" type="checkbox" class="custom-control-input" id="{{item.mId}}" name="example1">
                   <label class="custom-control-label" for="{{item.mId}}">&nbsp;</label>
                 </div>
-              <div *ngIf="isItem[item.mId] || isPreviewItem[item.mId]" class="custom-actions">
+              <div class="custom-actions">
                   
-                  <span class="delete" (click)="deleteMsg(item,$event)">
+                  <span  *ngIf="isItem[item.mId] || isPreviewItem[item.mId]"  class="delete" (click)="deleteMsg(item,$event)">
                       <i class="fas fa-trash-alt"></i>
                   </span>
                   <span class="flag" (click)="flagMsg(item,$event)">
-                      <i class="far fa-flag"></i>
+                      <i [ngClass]="{'fas flagged':item.flagged,'far noflagged':!item.flagged}" class="fa-flag"></i>
                   </span>
+                 
                   <!-- <i class="far fa-flag"></i>
                   <i class="fas fa-flag"></i> -->
               </div>

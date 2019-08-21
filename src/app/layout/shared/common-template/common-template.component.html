@@ -1,0 +1,143 @@
+<div class="top-bar position-none">
+  <div class="top-mini-bar">
+    <div class="top-mini-bar-ct">
+      <div class="time">
+        {{now | date}} &nbsp;{{now | date: 'mediumTime'}}
+      </div>
+      <ul class="list-inline topLists" *ngIf="enableOptions">
+        <li class="list-inline-item" *ngIf="enableAllOptions" (click)="markread($event)">
+          <i class="fas fa-envelope-open"></i>&nbsp;Mark All As Read</li>
+        <li class="list-inline-item" *ngIf="!enableAllOptions" (click)="markread($event)">
+          <i class="fas fa-envelope-open"></i>&nbsp;Mark As Read</li>
+        <li class="list-inline-item" *ngIf="enableAllOptions" (click)="markunread($event)">
+          <i class="fas fa-envelope"></i>&nbsp;Mark All As UnRead</li>
+        <li class="list-inline-item" *ngIf="!enableAllOptions" (click)="markunread($event)">
+          <i class="fas fa-envelope"></i>&nbsp;Mark As UnRead</li>
+        <li class="list-inline-item dropdown">
+          <div class="dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+            Move To
+          </div>
+          <div class="dropdown-menu">
+            <div *ngIf="this.folder !== 'inbox'" class="dropdown-item" (click)="moveToInbox($event)">Inbox</div>
+            <div *ngIf="this.folder !== 'spam'" class="dropdown-item" (click)="moveToSpam($event)">Spam</div>
+          </div>
+
+        </li>
+        <li class="list-inline-item" *ngIf="enableAllOptions" (click)="deleteOption($event)">Delete All</li>
+        <li class="list-inline-item" *ngIf="!enableAllOptions" (click)="deleteOption($event)">Delete</li>
+      </ul>
+
+    </div>
+  </div>
+</div>
+<div class="rightbarContent" id="rightContent" #fa1>
+  <section class="content">
+
+    <div class="split-left">
+      <section class="lists">
+        <ng-container *ngIf="_isData">
+          <div class="search-box">
+            <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+              placeholder="Search Current Mailbox">
+          </div>
+          <div class="min-header">
+
+            <div class="selectAll custom-control custom-checkbox mb-3">
+              <input [(ngModel)]="masterSelected" (change)=selectAll() type="checkbox" class="custom-control-input"
+                id="selectAll" name="selectAll">
+              <label class="custom-control-label" for="selectAll">&nbsp;</label>
+            </div>
+
+            <div class="sortby">
+              <p (click)="sortByDate()">Sort By Date <i
+                  [ngClass]="{'fa-long-arrow-alt-down':_isAsc,'fa-long-arrow-alt-up':!_isAsc}" class="fas "></i></p>
+            </div>
+            <div class="filterby">
+              <ngx-select [defaultValue]="_ngxDefault" [items]="items" (select)="filter($event)"></ngx-select>
+            </div>
+
+          </div>
+
+          <ul class="list-inline">
+            <perfect-scrollbar [style.height.px]="viewHeight" [config]="config">
+              <ng-container *ngFor="let item of _renderData | filter:searchText">
+                <li class="rowitems"
+                  [ngClass]="{'active':isItem[item.mId],'clickActive':isPreviewItem[item.mId] || item.isSelected,'unread':item.unread}"
+                  (mouseleave)="mouseInActive(item,$event)" (mouseenter)="mouseActive(item,$event)">
+                  <div *ngIf="isItem[item.mId] || isPreviewItem[item.mId] || item.isSelected"
+                    class="custom-control checkbtn custom-checkbox mb-3">
+                    <input [(ngModel)]="item.isSelected" (change)="checkValue(item,$event)" type="checkbox"
+                      class="custom-control-input" id="{{item.mId}}" name="example1">
+                    <label class="custom-control-label" for="{{item.mId}}">&nbsp;</label>
+                  </div>
+                  <div class="custom-actions">
+                    <span *ngIf="isItem[item.mId] || isPreviewItem[item.mId]" class="delete"
+                      (click)="deleteMsg(item,$event)">
+                      <i class="fas fa-trash-alt"></i>
+                    </span>
+                    <span class="flag" (click)="flagMsg(item,$event)">
+                      <i [ngClass]="{'fas flagged':item.flagged,'far noflagged':!item.flagged}" class="fa-flag"></i>
+                    </span>
+                  </div>
+                  <div class="item-con" (click)="previewFn(item)">
+                    <div class="recipent-name" [innerHTML]="item.name"></div>
+                    <div class="subject">
+                      {{item.subject}}
+                      <div class="date">
+                        {{item.date | date:'EEE dd/M H:mm'}}
+                      </div>
+                    </div>
+                    <div class="min-content" [innerHTML]="item.content"></div>
+                  </div>
+                </li>
+              </ng-container>
+            </perfect-scrollbar>
+          </ul>
+        </ng-container>
+        <ng-container *ngIf="!_isData">
+          <div class="row">
+            <div class="col-12">
+              <p class="pad">There Are no messages</p>
+            </div>
+          </div>
+        </ng-container>
+      </section>
+    </div>
+    <div class="splitter">
+    </div>
+    <div class="split-right">
+      <!--content-->
+      <ng-container *ngIf="preview && displayView">
+        <div class="right_content">
+          <div class="subject">
+            {{displayView.subject}}
+          </div>
+          <div class="mail-header">
+            <div class="msginfo">
+              <div class="circle">
+                <div class="circleContent">{{displayView.sn}}</div>
+              </div>
+              <div class="recipent-name">
+                <span>{{displayView.name}}</span>
+                <p class="dateTime"> {{displayView.date | date:'medium'}}</p>
+              </div>
+            </div>
+            <div class="msgActions"></div>
+          </div>
+          <div class="mail-body f-family-sohoR ">
+            <div [innerHTML]="displayView.content"></div>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="!preview">
+        <div class="mail-body empty f-family-sohoR ">
+          <div class="envelope">
+            <i class="far fa-envelope"></i>
+          </div>
+          Select an item to read
+        </div>
+      </ng-container>
+    </div>
+
+  </section>
+</div>

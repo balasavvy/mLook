@@ -1,0 +1,32 @@
+.leftSidebar .item {
+
+  width: 100%
+}
+
+.leftSidebar .item .list-group-item {
+  border: none;
+  padding: 5px;
+  background-color: transparent;
+  padding-left: 41px;
+}
+
+.leftSidebar .item .list-group-item.active {
+  background-color: #A9C1D6 !important;
+  color: #333;
+  font-weight: bold;
+  font-size: 13px
+}
+
+.hide {
+  display: none !important
+}
+
+.show {
+  display: block !important
+}
+span.count {
+  color: #004B8B;
+  position: absolute;
+  right: 10%;
+  font-weight: bold
+}

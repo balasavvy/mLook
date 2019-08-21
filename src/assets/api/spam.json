@@ -1,0 +1,18 @@
+[
+	{
+		"mId": "guid-4",
+		"unread": true,
+		"subject" : "Pre Approved Loan",
+		"date":"2018-04-27 03:00:00.0",
+		"name" : "ThulasiThulasiThulasiThulasiThulasi",
+		"content" : "Congratulations ! Credit card is being shipped to you today!"
+	},
+	{
+		"mId": "guid-5",
+		"unread": true,
+		"subject" : "You won a lottery!",
+		"date":"2018-03-27 03:00:00.0",
+		"name" : "ThulasiThulasiThulasiThulasiThulasi",
+		"content" : "You have just won the New York official lottery. Please send us your address so that we may start the transfer."
+	}
+]

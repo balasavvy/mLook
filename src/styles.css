@@ -2,39 +2,40 @@
 @import url("assets/css/style.css");
 
 :root {
-    --primeColor: #ff9933;
-    --primeDarkColor: #f96a0e;
-    --carrot: #ee6142;
-    --blue      : #0e1833;
-    --grey3     : #333333;
-    --openSans: 'Open Sans', sans-serif;
-    --sohoR: 'SohoPro-Regular';
-    --sohoL: 'SohoPro-Light';
-    --sohoB: 'SohoPro-Bold';
-    --montserrat: 'Montserrat', sans-serif;
-  }
+  --primeColor: #004b8b;
+  --primeDarkColor: #004b8b;
+  --blue: #0e1833;
+  --grey3: #333333;
+  --openSans: 'Open Sans', sans-serif;
+  --sohoR: 'SohoPro-Regular';
+  --sohoL: 'SohoPro-Light';
+  --sohoB: 'SohoPro-Bold';
+  --montserrat: 'Montserrat', sans-serif;
+}
 
 
-  .f-family-sohoR {
-    font-family: var(--sohoR);
-  }
+.f-family-sohoR {
+  font-family: var(--sohoR);
+}
 
-  
-  .f-family-sohoL {
-    font-family: var(--sohoL);
-  }
 
-  .f-family-sohoB {
-    font-family: var(--sohoB);
-  }
+.f-family-sohoL {
+  font-family: var(--sohoL);
+}
 
-  .f-family-openSans {
-    font-family: var(--openSans);
-  }
-  .f-family-montserrat {
-    font-family: var(--montserrat);
-  }
-  body,
+.f-family-sohoB {
+  font-family: var(--sohoB);
+}
+
+.f-family-openSans {
+  font-family: var(--openSans);
+}
+
+.f-family-montserrat {
+  font-family: var(--montserrat);
+}
+
+body,
 html {
   font-size: 14px;
   font-family: var(--openSans);
@@ -42,20 +43,40 @@ html {
   color: #666666;
   line-height: 2rem;
 }
-.font-size-16 {
-    font-size: 16px;
-  }
-  .font-size-14 {
-    font-size: 14px;
-  }
 
-  /* Placeholder CSS */
+.font-size-16 {
+  font-size: 16px;
+}
+
+.font-size-14 {
+  font-size: 14px;
+}
+
+/* Placeholder CSS */
 :-ms-input-placeholder {
-    color: #999999
-  }
-  :-moz-placeholder {
-    color: #999999
-  }
-  ::-moz-placeholder {
-    color: #999999
-  }
+  color: #999999
+}
+
+:-moz-placeholder {
+  color: #999999
+}
+
+::-moz-placeholder {
+  color: #999999
+}
+
+.pl-20 {
+  padding-left: 20px
+}
+
+.pt-20 {
+  padding-top: 20px
+}
+
+.pb-20 {
+  padding-top: 20px
+}
+
+.btn-default {
+  background: #eaeaea
+}

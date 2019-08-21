@@ -24,15 +24,18 @@
             ],
             "styles": [
                 "node_modules/bootstrap/dist/css/bootstrap.min.css",
+                "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
                 "src/app-loading.css",
                 "src/assets/css/toastr/toastr.css",
                 "src/styles.css",
                 "src/assets/fonts/fontAwesome/css/all.min.css",
                 "src/assets/fonts/fontAwesome/css/fontawesome.min.css",
-                "src/assets/fonts/fontAwesome/css/brands.min.css"
+                "src/assets/fonts/fontAwesome/css/brands.min.css",
+                "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/popper.js/dist/umd/popper.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           },

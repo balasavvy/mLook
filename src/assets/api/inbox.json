@@ -1,0 +1,104 @@
+[
+	{
+		"mId": "guid-1",
+		"unread": true,
+		"flagged":false,
+		"date":"2018-05-27 03:00:00.0",
+		"name" : "ThulasiThulasiThulasiThulasiThulasi",
+		"sn":"TR",
+		"subject" : "Training Program",
+		"content" : "About Microsoft Virtual Academy<br/>Microsoft Virtual Academy provides free online training by world-class experts to help you build your technical skills and advance your career. Make it your destination of choice to get started on the latest Microsoft technologies and join this vibrant community."
+	},
+	{
+		"mId": "guid-2",
+		"unread": false,
+		"flagged":false,
+		"name" : "Thulasi1",
+		"date":"2018-05-27 03:30:00.0",
+		"sn":"TR",
+		"subject" : "Empower your future",
+		"content" : "We foster our pipeline of future leaders with 47 employee networks and 7 global employee resource groups, servicing an active community of thousands across Microsoft"
+	},	
+	{
+		"mId": "guid-3",
+		"unread": false,
+		"flagged":true,
+		"name" : "Thulasi2",		
+		"date":"2018-05-27 01:30:00.0",
+		"sn":"TR",
+		"subject" : "Empower your future",
+		"content" : "We foster our pipeline of future leaders with 47 employee networks and 7 global employee resource groups, servicing an active community of thousands across Microsoft"
+	},	
+	{
+		"mId": "guid-8",
+		"unread": false,
+		"flagged":true,
+		"name" : "Thulasi2",		
+		"date":"2018-05-27 01:30:00.0",
+		"sn":"TR",
+		"subject" : "Empower your future",
+		"content" : "We foster our pipeline of future leaders with 47 employee networks and 7 global employee resource groups, servicing an active community of thousands across Microsoft"
+	}
+	,	
+	{
+		"mId": "guid-9",
+		"unread": false,
+		"flagged":true,
+		"name" : "Thulasi2",		
+		"date":"2018-05-27 01:30:00.0",
+		"sn":"TR",
+		"subject" : "Empower your future",
+		"content" : "We foster our pipeline of future leaders with 47 employee networks and 7 global employee resource groups, servicing an active community of thousands across Microsoft"
+	}
+	,	
+	{
+		"mId": "guid-31",
+		"unread": false,
+		"flagged":true,
+		"name" : "Thulasi2",		
+		"date":"2018-05-27 01:30:00.0",
+		"sn":"TR",
+		"subject" : "Empower your future",
+		"content" : "We foster our pipeline of future leaders with 47 employee networks and 7 global employee resource groups, servicing an active community of thousands across Microsoft"
+	},	
+	{
+		"mId": "guid-33",
+		"unread": false,
+		"flagged":true,
+		"name" : "Thulasi2",		
+		"date":"2018-05-27 01:30:00.0",
+		"sn":"TR",
+		"subject" : "Empower your future",
+		"content" : "We foster our pipeline of future leaders with 47 employee networks and 7 global employee resource groups, servicing an active community of thousands across Microsoft"
+	},	
+	{
+		"mId": "guid-133",
+		"unread": false,
+		"flagged":true,
+		"name" : "Thulasi2",		
+		"date":"2018-05-27 01:30:00.0",
+		"sn":"TR",
+		"subject" : "Empower your future",
+		"content" : "We foster our pipeline of future leaders with 47 employee networks and 7 global employee resource groups, servicing an active community of thousands across Microsoft"
+	},	
+	{
+		"mId": "guid-323",
+		"unread": false,
+		"flagged":true,
+		"name" : "Thulasi2",		
+		"date":"2018-05-27 01:30:00.0",
+		"sn":"TR",
+		"subject" : "Empower your future",
+		"content" : "We foster our pipeline of future leaders with 47 employee networks and 7 global employee resource groups, servicing an active community of thousands across Microsoft"
+	},	
+	{
+		"mId": "guid-433",
+		"unread": false,
+		"flagged":true,
+		"name" : "Thulasi2",		
+		"date":"2018-05-27 01:30:00.0",
+		"sn":"TR",
+		"subject" : "Empower your future",
+		"content" : "We foster our pipeline of future leaders with 47 employee networks and 7 global employee resource groups, servicing an active community of thousands across Microsoft"
+	}
+]

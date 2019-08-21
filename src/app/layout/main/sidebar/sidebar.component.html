@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-12">
+    <div class="nav leftSidebar pt-20">
+      <div class="item">
+        <h6 class="pl-20">
+          <span (click)="showFolders()">
+            <i [ngClass]="{'fa-chevron-up':isFolder,'fa-chevron-down':!isFolder}" class="fas fa-chevron-down"></i>
+            &nbsp;Folders</span>
+          <!-- <span (click)=newFolder($event)><i class="fas fa-plus"></i></span> -->
+        </h6>
+        <nav class="folders" [ngClass]="{'show':isFolder,'hide':!isFolder}">
+          <ul class="list-group">
+            <li class="list-group-item" [routerLinkActive]="['active']" [routerLink]="['inbox']">Inbox
+              <span *ngIf="IboxUnreadCount" class="count">{{IboxUnreadCount}}</span>
+            </li>
+            <li class="list-group-item" [routerLinkActive]="['active']" [routerLink]="['spam']">Spam
+              <span *ngIf="SboxUnreadCount" class="count">{{SboxUnreadCount}}</span>
+            </li>
+            <li class="list-group-item" [routerLinkActive]="['active']" [routerLink]="['deleted']">Deleted Items
+              <span *ngIf="DboxUnreadCount" class="count">{{DboxUnreadCount}}</span>
+            </li>
+            <ng-container>
+              <div class="custom-test" #custom>
+              </div>
+            </ng-container>
+
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<!--new folder Modal-->
+<ng-template #newfolder>
+  <div class="modal-body shaker">
+    <div class="row">
+      <div class="col-12">
+        <h5 class="title">New Folder</h5>
+      </div>
+    </div>
+    <div class="row mt15 justify-content-center">
+      <div class="col-12 text-center">
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit($event)" #f="ngForm" novalidate>
+          <div class="form-group">
+            <label for="folderName">Folder Name</label>
+            <input type="text" class="form-control" name="folderName" [(ngModel)]="model.folderName"
+              #folderName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && folderName.invalid }" required />
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary">Add</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</ng-template>

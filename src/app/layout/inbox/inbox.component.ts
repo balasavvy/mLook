@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from 'src/app/services/data-service.service';
-import { FormControl } from '@angular/forms';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-inbox',
   templateUrl: './inbox.component.html',
@@ -10,12 +9,13 @@ import { FormControl } from '@angular/forms';
 export class InboxComponent implements OnInit {
   inBoxData: any;
  
-  constructor(private dataService:DataServiceService) {
+  constructor(private toastr: ToastrService,private dataService:DataServiceService) {
   
    }
 
   ngOnInit() {
-      this.inBoxData=this.dataService.mailIData;        
+      this.inBoxData=this.dataService.mailIData;     
+        
   }
   sendData(data){
    // this.dataService.removeData("inboxData");

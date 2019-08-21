@@ -29,7 +29,7 @@
     "ngx-bootstrap": "1.9.3",
     "ngx-perfect-scrollbar": "8.0.0",
     "ngx-select-ex": "^3.7.2",
-    "ngx-toastr": "6.4.1-beta.0",
+    "ngx-toastr": "^10.0.4",
     "ngx-webstorage-service": "^4.0.1",
     "popper.js": "^1.15.0",
     "rxjs": "~6.3.3",

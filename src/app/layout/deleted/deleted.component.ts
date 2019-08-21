@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { DataServiceService } from 'src/app/services/data-service.service';
 import { BsModalService, ModalDirective, BsModalRef } from 'ngx-bootstrap/modal';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-deleted',
   templateUrl: './deleted.component.html',
@@ -18,7 +18,7 @@ export class DeletedComponent implements OnInit {
   deletedData: any;
   deleData: any;
  
-  constructor(private modalService: BsModalService,private dataService:DataServiceService) {
+  constructor(private toastr: ToastrService,private modalService: BsModalService,private dataService:DataServiceService) {
   
    }
 
@@ -44,9 +44,12 @@ export class DeletedComponent implements OnInit {
     this.dataService.getDeletedData =this.deleData; //set
     this.dataService.mailRData=this.deleData; //storage
     this.deletedData=this.dataService.mailRData;
+    this.toastr.success("Deleted permanently!");
     if (this.modalRef) {
       this.modalRef.hide();
     }
+
+    this.dataService.someProp.next('some value1');
   }
   hideModal(){
     if (this.modalRef) {

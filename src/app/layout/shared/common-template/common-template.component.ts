@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, OnChanges, Output, EventEmitter, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { DataServiceService } from 'src/app/services/data-service.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'common-template',
@@ -31,7 +32,7 @@ export class CommonTemplateComponent implements OnInit, OnChanges, AfterViewInit
   enableAllOptions: boolean;
   Sheight: number;
   viewHeight: number = 0;
-  constructor(private dataService: DataServiceService) {
+  constructor(private toastr: ToastrService,private dataService: DataServiceService) {
     this._ngxDefault.push(this.items[0].id);
     setInterval(() => {
       this.now = new Date();
@@ -189,6 +190,7 @@ export class CommonTemplateComponent implements OnInit, OnChanges, AfterViewInit
     this.sendData.emit($currentData);
     this.dataService.someProp.next('some value1');
     this.masterSelected = false;
+    
   }
   deleteOption(event) {
     let checkedlist = this.checkedList;
@@ -271,6 +273,7 @@ export class CommonTemplateComponent implements OnInit, OnChanges, AfterViewInit
     }
     this.dataService.someProp.next('some value1');
     this.masterSelected = false;
+    this.toastr.success("Moved to Inbox Successfully!");
   }
   moveToSpam(event) {
     let checkedlist = this.checkedList;
@@ -296,5 +299,6 @@ export class CommonTemplateComponent implements OnInit, OnChanges, AfterViewInit
     }
     this.dataService.someProp.next('some value1');
     this.masterSelected = false;
+    this.toastr.success("Moved to Spam Successfully!");
   }
 }

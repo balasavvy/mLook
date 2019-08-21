@@ -62,6 +62,7 @@ export class CommonTemplateComponent implements OnInit,OnChanges {
       }this._renderData.forEach((obj)=>{
         delete obj.isSelected; 
       })
+      
     });
   }
   filter(value: any){
@@ -213,5 +214,34 @@ export class CommonTemplateComponent implements OnInit,OnChanges {
      this.sendReadData.emit( this._renderData);
     this.dataService.someProp.next('some value1');
     this.masterSelected=false;
+    }
+    moveToInbox(event){
+      let checkedlist=this.checkedList;
+      for(let i=0;i<checkedlist.length;i++){
+          let item =checkedlist[i];
+         let mailData=this.dataService.mailIData;
+         mailData.push(item);
+         this.dataService.mailIData=mailData //set into storage   
+      }
+      
+      let result  = this._renderData.filter(({ mId: id1 }) => !checkedlist.some(({ mId: id2 }) => id2 === id1));;
+     
+      this.sendData.emit(result);
+      this.dataService.someProp.next('some value1');
+      this.masterSelected=false;
+    }
+    moveToSpam(event){
+      let checkedlist=this.checkedList;
+      for(let i=0;i<checkedlist.length;i++){
+        let item =checkedlist[i];
+        let mailData=this.dataService.mailSData;
+         mailData.push(item);
+         this.dataService.mailSData=mailData //set into storage 
+      }
+      let result  = this._renderData.filter(({ mId: id1 }) => !checkedlist.some(({ mId: id2 }) => id2 === id1));;
+     
+      this.sendData.emit(result);
+      this.dataService.someProp.next('some value1');
+      this.masterSelected=false;
     }
 }

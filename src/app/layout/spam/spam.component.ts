@@ -15,8 +15,7 @@ export class SpamComponent implements OnInit {
    }
 
   ngOnInit() {
-      this.spamData=this.dataService.mailSData;
-        
+      this.spamData=this.dataService.mailSData;        
   }
   sendData(data){
     this.dataService.removeData("spamData");

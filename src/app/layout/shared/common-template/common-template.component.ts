@@ -62,7 +62,7 @@ export class CommonTemplateComponent implements OnInit,OnChanges {
       }this._renderData.forEach((obj)=>{
         delete obj.isSelected; 
       })
-      
+      this.masterSelected=false;
     });
   }
   filter(value: any){
@@ -80,6 +80,9 @@ export class CommonTemplateComponent implements OnInit,OnChanges {
       this._renderData = filter.length?[...filter]:[]
     }else{
       this._renderData = [...getData]
+    }
+    if(this.masterSelected){
+      this.selectAll()
     }
   }
   previewFn(item){
@@ -159,6 +162,7 @@ export class CommonTemplateComponent implements OnInit,OnChanges {
      
 
       //update current mailbox
+      this.folder == 'inbox'?this._renderData =this.dataService.mailIData:this.folder == 'spam'?this._renderData =this.dataService.mailSData:this._renderData =this.dataService.mailRData;
       let $currentData =  this._renderData.filter(function(obj){
         return obj.mId !== item.mId;              
         });        
@@ -176,6 +180,7 @@ export class CommonTemplateComponent implements OnInit,OnChanges {
         this.dataService.mailRData=deleteObj //set into storage      
       }
     }
+    this.folder == 'inbox'?this._renderData =this.dataService.mailIData:this.folder == 'spam'?this._renderData =this.dataService.mailSData:this._renderData =this.dataService.mailRData;
       let result  = this._renderData.filter(({ mId: id1 }) => !checkedlist.some(({ mId: id2 }) => id2 === id1));;
      
       this.sendData.emit(result);
@@ -184,14 +189,14 @@ export class CommonTemplateComponent implements OnInit,OnChanges {
     }
     selectAll() {
       for(let i = 0; i < this._renderData.length; i++){
-        if( !this._renderData[i].disable){
           this._renderData[i].isSelected = this.masterSelected;
-        }
-       
+        
       }
       this.getCheckedItemList();
     }
     markread(event){
+      this.folder == 'inbox'?this._renderData =this.dataService.mailIData:this.folder == 'spam'?this._renderData =this.dataService.mailSData:this._renderData =this.dataService.mailRData;
+    
       let checkedlist=this.checkedList;
       for(let i=0;i<checkedlist.length;i++){
         let itemobj=this.checkedList[i];
@@ -201,11 +206,12 @@ export class CommonTemplateComponent implements OnInit,OnChanges {
           }          
         });
       }
+      
       this.sendReadData.emit( this._renderData);
       this.dataService.someProp.next('some value1');
-      this.masterSelected=false;
     }
     markunread(event){
+      this.folder == 'inbox'?this._renderData =this.dataService.mailIData:this.folder == 'spam'?this._renderData =this.dataService.mailSData:this._renderData =this.dataService.mailRData;    
       let checkedlist=this.checkedList;
       for(let i=0;i<checkedlist.length;i++){
         let itemobj=this.checkedList[i];
@@ -217,7 +223,6 @@ export class CommonTemplateComponent implements OnInit,OnChanges {
       }
      this.sendReadData.emit( this._renderData);
     this.dataService.someProp.next('some value1');
-    this.masterSelected=false;
     }
     moveToInbox(event){
       let checkedlist=this.checkedList;
@@ -227,10 +232,15 @@ export class CommonTemplateComponent implements OnInit,OnChanges {
          mailData.push(item);
          this.dataService.mailIData=mailData //set into storage   
       }
-      
+      this.folder == 'inbox'?this._renderData =this.dataService.mailIData:this.folder == 'spam'?this._renderData =this.dataService.mailSData:this._renderData =this.dataService.mailRData;
+    
       let result  = this._renderData.filter(({ mId: id1 }) => !checkedlist.some(({ mId: id2 }) => id2 === id1));;
      
-      this.sendData.emit(result);
+      if(this.folder !== 'deleted'){
+        this.sendData.emit(result);
+      }else{
+        this.sendReadData.emit(result);
+      }
       this.dataService.someProp.next('some value1');
       this.masterSelected=false;
     }
@@ -242,9 +252,16 @@ export class CommonTemplateComponent implements OnInit,OnChanges {
          mailData.push(item);
          this.dataService.mailSData=mailData //set into storage 
       }
+      this.folder == 'inbox'?this._renderData =this.dataService.mailIData:this.folder == 'spam'?this._renderData =this.dataService.mailSData:this._renderData =this.dataService.mailRData;
+    
       let result  = this._renderData.filter(({ mId: id1 }) => !checkedlist.some(({ mId: id2 }) => id2 === id1));;
      
-      this.sendData.emit(result);
+     
+      if(this.folder !== 'deleted'){
+        this.sendData.emit(result);
+      }else{
+        this.sendReadData.emit(result);
+      }
       this.dataService.someProp.next('some value1');
       this.masterSelected=false;
     }

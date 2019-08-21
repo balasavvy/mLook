@@ -15,23 +15,22 @@ export class InboxComponent implements OnInit {
    }
 
   ngOnInit() {
-      this.inBoxData=this.dataService.mailIData;
-        
+      this.inBoxData=this.dataService.mailIData;        
   }
   sendData(data){
-    this.dataService.removeData("inboxData");
+   // this.dataService.removeData("inboxData");
     this.dataService.getInBoxData =data; //set
     this.dataService.mailIData=data; //storage
     this.inBoxData=this.dataService.mailIData;
   }
   sendFlagData(data){
-    this.dataService.removeData("inboxData");
+   // this.dataService.removeData("inboxData");
     this.dataService.getInBoxData =data;
     this.dataService.mailIData=data;
     this.inBoxData=this.dataService.mailIData;
   }
   sendReadData(data){
-    this.dataService.removeData("inboxData");
+    //this.dataService.removeData("inboxData");
     this.dataService.getInBoxData =data; //set
     this.dataService.mailIData=data; //storage
     this.inBoxData=this.dataService.mailIData;

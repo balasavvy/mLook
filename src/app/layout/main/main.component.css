@@ -1,27 +1,30 @@
-.left-bar{
-    width:214px;
-    position:absolute;
-    top: 0px;
-    right: auto;
-    bottom: 0px;
-    left: 0px;
-    height: auto;
-    background-color: #f4f4f4
+.left-bar {
+  width: 214px;
+  position: absolute;
+  top: 0px;
+  right: auto;
+  bottom: 0px;
+  left: 0px;
+  height: auto;
+  background-color: #f4f4f4
 }
-.right-bar{
-    width:auto;position: absolute;
-    left:214px;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
+
+.right-bar {
+  width: auto;
+  position: absolute;
+  left: 214px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
 }
-.main{
-    position: absolute;
-    top: 51px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    height: auto;
-    width: auto;
-  
+
+.main {
+  position: absolute;
+  top: 51px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  height: auto;
+  width: auto;
+
 }

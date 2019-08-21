@@ -1,19 +1,25 @@
-.leftSidebar .item{
+.leftSidebar .item {
 
-width:100%
+  width: 100%
 }
-.leftSidebar .item .list-group-item{
-    border: none;
-    padding: 5px;
-    background-color: transparent;
-    padding-left: 41px;
+
+.leftSidebar .item .list-group-item {
+  border: none;
+  padding: 5px;
+  background-color: transparent;
+  padding-left: 41px;
 }
-.leftSidebar .item .list-group-item.active{
-    background-color: #A9C1D6 !important;
-    color:#333;
-    font-weight: bold;
+
+.leftSidebar .item .list-group-item.active {
+  background-color: #A9C1D6 !important;
+  color: #333;
+  font-weight: bold;
 }
-.hide{
-    display: none !important
+
+.hide {
+  display: none !important
 }
-.show{display:block !important}
+
+.show {
+  display: block !important
+}

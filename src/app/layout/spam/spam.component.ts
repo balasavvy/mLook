@@ -24,12 +24,6 @@ export class SpamComponent implements OnInit {
     this.spamData=this.dataService.mailSData;
   }
 
-  sendFlagData(data){
-    this.dataService.removeData("spamData");
-    this.dataService.getSpamData =data;
-    this.dataService.mailSData=data;
-    this.spamData=this.dataService.mailSData;
-  }
   sendReadData(data){
     this.dataService.removeData("spamData");
     this.dataService.getSpamData =data;

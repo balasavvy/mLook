@@ -19,6 +19,13 @@
 
 }
 
+.dateTime {
+  margin: 0;
+  font-size: 9px;
+  font-weight: normal;
+  line-height: 15px;
+}
+
 .splitter {
   position: absolute;
   top: 0px;
@@ -68,6 +75,7 @@
   padding: 10px;
   padding-left: 30px;
   position: relative;
+  padding-right: 20px;
 }
 
 .flagged {
@@ -194,11 +202,11 @@ li.rowitems.unread {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  padding: 10px 10px 10px 45px;
+  padding: 10px 10px 10px 40px;
   border-bottom: 1px solid #eaeaea;
   align-items: center;
   position: relative;
-  font-size: 11px;
+  font-size: 13px;
 }
 
 .filterby {
@@ -272,7 +280,7 @@ li.rowitems.unread {
 
 .custom-actions {
   position: absolute;
-  right: 10px;
+  right: 20px;
   top: 4px;
 }
 
@@ -282,7 +290,7 @@ li.rowitems.unread {
 
 .selectAll {
   position: absolute;
-  left: 16px;
+  left: 10px;
   top: 16px;
 }
 

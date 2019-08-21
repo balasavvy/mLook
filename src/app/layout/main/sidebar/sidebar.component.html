@@ -10,7 +10,7 @@
         </h6>
         <nav class="folders" [ngClass]="{'show':isFolder,'hide':!isFolder}">
           <ul class="list-group">
-            <li class="list-group-item" [routerLinkActive]="['active']" [routerLink]="['inbox']">InBox
+            <li class="list-group-item" [routerLinkActive]="['active']" [routerLink]="['inbox']">Inbox
               <span *ngIf="IboxUnreadCount" class="count">{{IboxUnreadCount}}</span>
             </li>
             <li class="list-group-item" [routerLinkActive]="['active']" [routerLink]="['spam']">Spam

@@ -20,8 +20,8 @@ export class InboxComponent implements OnInit {
   }
   sendData(data){
     this.dataService.removeData("inboxData");
-    this.dataService.getInBoxData =data;
-    this.dataService.mailIData=data;
+    this.dataService.getInBoxData =data; //set
+    this.dataService.mailIData=data; //storage
     this.inBoxData=this.dataService.mailIData;
   }
   sendFlagData(data){

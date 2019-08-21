@@ -2,10 +2,10 @@
 <div class="top-mini-bar">
     <div class="top-mini-bar-ct">
         <ul class="list-inline" *ngIf="enableOptions">
-          <li class="list-inline-item" *ngIf="enableAllOptions">Mark All As Read</li>
-          <li class="list-inline-item"  *ngIf="!enableAllOptions">Mark As Read</li>
-          <li  class="list-inline-item" *ngIf="enableAllOptions">Mark All As UnRead</li>
-          <li class="list-inline-item"  *ngIf="!enableAllOptions">Mark As UnRead</li>
+          <li class="list-inline-item" *ngIf="enableAllOptions"  (click)="markread($event)">Mark All As Read</li>
+          <li class="list-inline-item"  *ngIf="!enableAllOptions"  (click)="markread($event)">Mark As Read</li>
+          <li  class="list-inline-item" *ngIf="enableAllOptions"  (click)="markunread($event)">Mark All As UnRead</li>
+          <li class="list-inline-item"  *ngIf="!enableAllOptions"  (click)="markunread($event)">Mark As UnRead</li>
           <li class="list-inline-item dropdown"  >
              
                   <div class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
@@ -17,8 +17,8 @@
                   </div>
             
         </li>
-          <li class="list-inline-item"  *ngIf="enableAllOptions">Delete All</li>
-          <li  class="list-inline-item" *ngIf="!enableAllOptions">Delete</li>
+          <li class="list-inline-item"  *ngIf="enableAllOptions" (click)="deleteOption($event)">Delete All</li>
+          <li  class="list-inline-item" *ngIf="!enableAllOptions" (click)="deleteOption($event)">Delete</li>
         </ul>
     </div>
 </div>
@@ -87,7 +87,10 @@
         </ul>
       </ng-container>
     <ng-container *ngIf="!_isData">
-      <p>There Are no messages</p>
+     <div class="row">
+     <div class="col-12">
+        <p>There Are no messages</p></div>
+       </div>
     </ng-container>
       </section>
     

@@ -56,7 +56,9 @@ export class CommonTemplateComponent implements OnInit,OnChanges {
       }else{
         this._isData=false;
         this._renderData=[];
-      }
+      }this._renderData.forEach((obj)=>{
+        delete obj.isSelected; 
+      })
     });
   }
   filter(value: any){
@@ -151,8 +153,22 @@ export class CommonTemplateComponent implements OnInit,OnChanges {
         });        
          this.sendData.emit($currentData);
          this.dataService.someProp.next('some value1');
+         this.masterSelected=false;
     }
-
+    deleteOption(event){
+      let checkedlist=this.checkedList;
+      for(let i=0;i<checkedlist.length;i++){
+        let item =checkedlist[i];
+        this.dataService.getDeletedData =item; //push the data to existing array
+        let deleteObj=this.dataService.deletedData; //get the data from array
+        this.dataService.mailRData=deleteObj //set into storage      
+      }
+      let result  = this._renderData.filter(({ mId: id1 }) => !checkedlist.some(({ mId: id2 }) => id2 === id1));;
+     
+      this.sendData.emit(result);
+      this.dataService.someProp.next('some value1');
+      this.masterSelected=false;
+    }
     selectAll() {
       for(let i = 0; i < this._renderData.length; i++){
         if( !this._renderData[i].disable){
@@ -161,5 +177,33 @@ export class CommonTemplateComponent implements OnInit,OnChanges {
        
       }
       this.getCheckedItemList();
+    }
+    markread(event){
+      let checkedlist=this.checkedList;
+      for(let i=0;i<checkedlist.length;i++){
+        let itemobj=this.checkedList[i];
+        this._renderData.forEach((obj, i) => {
+          if(obj.mId == itemobj.mId){
+            obj.unread = false
+          }          
+        });
+      }
+      this.sendData.emit( this._renderData);
+      this.dataService.someProp.next('some value1');
+      this.masterSelected=false;
+    }
+    markunread(event){
+      let checkedlist=this.checkedList;
+      for(let i=0;i<checkedlist.length;i++){
+        let itemobj=this.checkedList[i];
+        this._renderData.forEach((obj, i) => {
+          if(obj.mId == itemobj.mId){
+            obj.unread = true
+          }          
+        });
+      }
+     this.sendData.emit( this._renderData);
+    this.dataService.someProp.next('some value1');
+    this.masterSelected=false;
     }
 }

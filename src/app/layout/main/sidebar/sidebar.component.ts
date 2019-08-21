@@ -5,6 +5,7 @@ import { InboxComponent } from '../../inbox/inbox.component';
 import { SpamComponent } from '../../spam/spam.component';
 import * as $ from 'jquery';
 import {CustomFolderComponent } from '../../custom/custom.component';
+import { DataServiceService } from 'src/app/services/data-service.service';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -20,9 +21,16 @@ export class SidebarComponent implements OnInit {
     ignoreBackdropClick: true
   };
   model: any = {};
-  constructor(private modalService: BsModalService,private renderer: Renderer2,private router:Router) { }
+  IboxUnreadCount: any;
+  SboxUnreadCount: any;
+  DboxUnreadCount: any;
+  constructor(private dataServcie:DataServiceService,private modalService: BsModalService,private renderer: Renderer2,private router:Router) { }
 
   ngOnInit() {
+    this.IboxUnreadCount = this.dataServcie.IunreadCount().length;
+    this.SboxUnreadCount = this.dataServcie.SunreadCount().length;
+    this.DboxUnreadCount = this.dataServcie.DunreadCount().length;
+    console.log(this.dataServcie.DunreadCount())
   }
   showFolders(){
     this.isFolder = this.isFolder?false:true;

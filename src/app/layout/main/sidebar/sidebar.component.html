@@ -11,10 +11,13 @@
        <nav class="folders"  [ngClass]="{'show':isFolder,'hide':!isFolder}">
          <ul class="list-group">
            <li class="list-group-item" [routerLinkActive]="['active']"  [routerLink]="['inbox']">InBox
+             <span *ngIf="IboxUnreadCount" class="count">{{IboxUnreadCount}}</span>
             </li>
            <li class="list-group-item"  [routerLinkActive]="['active']"  [routerLink]="['spam']">Spam
+              <span *ngIf="SboxUnreadCount" class="count">{{SboxUnreadCount}}</span>
             </li>
            <li class="list-group-item"  [routerLinkActive]="['active']"  [routerLink]="['deleted']">Deleted Items 
+              <span *ngIf="DboxUnreadCount" class="count">{{DboxUnreadCount}}</span>
             </li>
             <ng-container>
                 <div class="custom-test" #custom>

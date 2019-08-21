@@ -16,6 +16,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { CustomFolderComponent } from './custom/custom.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxSelectModule, INgxSelectOptions } from 'ngx-select-ex';
+import { CommonTemplateComponent } from './shared/common-template/common-template.component';
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   wheelPropagation: true
 };
@@ -26,7 +27,7 @@ const CustomSelectOptions: INgxSelectOptions = { // Check the interface for more
 };
 @NgModule({
   declarations: [LayoutComponent, HeaderComponent, MainComponent, SidebarComponent, 
-    InboxComponent, SpamComponent, DeletedComponent,CustomFolderComponent],
+    InboxComponent, SpamComponent, DeletedComponent,CustomFolderComponent, CommonTemplateComponent],
   imports: [
     CommonModule,
     BrowserModule,

@@ -25,12 +25,3 @@
     width: auto;
   
 }
-.rightbarContent{
-    position: absolute;
-    top: 0;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    height: auto;
-    width: auto;
-}

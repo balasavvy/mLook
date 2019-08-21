@@ -9,20 +9,14 @@ import { DataServiceService } from 'src/app/services/data-service.service';
 export class SpamComponent implements OnInit {
 
   spamData: any;
-  preview:boolean;
-  displayView: any;
-  constructor(private dataService:DataServiceService) { }
+ 
+  constructor(private dataService:DataServiceService) {
+  
+   }
 
   ngOnInit() {
-      this.spamData=this.dataService.getSpamData;
+      this.spamData=this.dataService.mailSData;
         
-     
   }
-  previewFn(item){
-    this.preview =true;
-    this.renderItem(item)
-  }
-  renderItem(item: any) {
-   this.displayView = item
-  }
+  
 }

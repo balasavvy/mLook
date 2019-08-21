@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataServiceService } from 'src/app/services/data-service.service';
 
 @Component({
   selector: 'app-deleted',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeletedComponent implements OnInit {
 
-  constructor() { }
+  
+  deletedData: any;
+ 
+  constructor(private dataService:DataServiceService) {
+  
+   }
 
   ngOnInit() {
+      this.deletedData=this.dataService.mailRData;
+        
   }
-
 }

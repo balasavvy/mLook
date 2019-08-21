@@ -22,7 +22,7 @@ export class DataServiceService {
   }
   inboxData: any = InboxData;
   spamData: any = SpamData;
-  deletedData: any;
+  deletedData: any=[];
   public someProp  = new BehaviorSubject<any>(null);
   constructor(  private http: HttpClient,@Inject(SESSION_STORAGE) private storage: StorageService) { 
     this.init()
@@ -72,4 +72,26 @@ export class DataServiceService {
         set mailRData(data){
           this.storage.set("deletedData",data)
         }
+
+      IunreadCount(){
+        let unread=  this.storage.get("inboxData").length?this.storage.get("inboxData").filter(function (x) {
+          return x.unread;
+        }):[];
+        return  unread
+      }
+      SunreadCount(){
+        let unread=  this.storage.get("spamData").length?this.storage.get("spamData").filter(function (x) {
+          return x.unread;
+        }):[];
+        return  unread
+      }
+      DunreadCount(){
+        
+        let unread= this.storage.get("deletedData").length?this.storage.get("deletedData").filter(function (x) {
+          return x.unread;
+        }):[];
+        console.log(unread)
+        return  unread
+      }
+      
 }

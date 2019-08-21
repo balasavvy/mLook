@@ -17,6 +17,7 @@ import { CustomFolderComponent } from './custom/custom.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxSelectModule, INgxSelectOptions } from 'ngx-select-ex';
 import { CommonTemplateComponent } from './shared/common-template/common-template.component';
+import { DataServiceService } from '../services/data-service.service';
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   wheelPropagation: true
 };
@@ -43,6 +44,7 @@ const CustomSelectOptions: INgxSelectOptions = { // Check the interface for more
     LayoutComponent
   ],
   providers:[
+    DataServiceService,
     {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG

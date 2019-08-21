@@ -34,4 +34,4 @@
     
     </section> -->
 
-    <common-template [data]="spamData" [folder]="'spam'"></common-template>
+    <common-template (sendData)="sendData($event)" [data]="spamData" [folder]="'spam'"></common-template>

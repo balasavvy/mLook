@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild, Renderer2 } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, Renderer2, OnChanges } from '@angular/core';
 import { ModalDirective, BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Router } from '@angular/router';
 import { InboxComponent } from '../../inbox/inbox.component';
@@ -11,7 +11,7 @@ import { DataServiceService } from 'src/app/services/data-service.service';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent implements OnInit,OnChanges {
   isFolder: Boolean =true;
   @ViewChild('custom') custom: ElementRef;
   modalRef: BsModalRef;
@@ -24,13 +24,17 @@ export class SidebarComponent implements OnInit {
   IboxUnreadCount: any;
   SboxUnreadCount: any;
   DboxUnreadCount: any;
-  constructor(private dataServcie:DataServiceService,private modalService: BsModalService,private renderer: Renderer2,private router:Router) { }
+  constructor(private dataService:DataServiceService,private modalService: BsModalService,private renderer: Renderer2,private router:Router) { }
 
   ngOnInit() {
-    this.IboxUnreadCount = this.dataServcie.IunreadCount().length;
-    this.SboxUnreadCount = this.dataServcie.SunreadCount().length;
-    this.DboxUnreadCount = this.dataServcie.DunreadCount().length;
-    console.log(this.dataServcie.DunreadCount())
+    this.dataService.someProp.subscribe(res => {
+    this.IboxUnreadCount = this.dataService.IunreadCount().length;
+    this.SboxUnreadCount = this.dataService.SunreadCount().length;
+    this.DboxUnreadCount = this.dataService.DunreadCount().length;
+    });
+  }
+  ngOnChanges() {
+ 
   }
   showFolders(){
     this.isFolder = this.isFolder?false:true;

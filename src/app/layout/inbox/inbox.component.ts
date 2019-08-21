@@ -18,5 +18,10 @@ export class InboxComponent implements OnInit {
       this.inBoxData=this.dataService.mailIData;
         
   }
-  
+  sendData(data){
+    this.dataService.removeData("inboxData");
+    this.dataService.getInBoxData =data;
+    this.dataService.mailIData=data;
+    this.inBoxData=this.dataService.mailIData;
+  }
 }

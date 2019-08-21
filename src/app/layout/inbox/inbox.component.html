@@ -1,1 +1,1 @@
-<common-template [data]="inBoxData" [folder]="'inbox'"></common-template>
+<common-template (sendData)="sendData($event)" [data]="inBoxData" [folder]="'inbox'"></common-template>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
 import { DataServiceService } from 'src/app/services/data-service.service';
 
 @Component({
@@ -6,10 +6,11 @@ import { DataServiceService } from 'src/app/services/data-service.service';
   templateUrl: './common-template.component.html',
   styleUrls: ['./common-template.component.css']
 })
-export class CommonTemplateComponent implements OnInit {
+export class CommonTemplateComponent implements OnInit,OnChanges {
   @Input('data') _data;
   @Input('folder') folder;
-  
+  @Output() sendData : EventEmitter<any> = new EventEmitter();
+ 
   inBoxData: any;
   preview:boolean;
   displayView: any;
@@ -20,6 +21,7 @@ export class CommonTemplateComponent implements OnInit {
   _isAsc =true;
   _dataBp: any[];
   _isData: boolean=false;
+  _renderData: any[];
   constructor(private dataService:DataServiceService) {
     this._ngxDefault.push(this.items[0].id);
    
@@ -37,15 +39,20 @@ export class CommonTemplateComponent implements OnInit {
     "name":'Unread'
   }];
   ngOnInit() {
-    console.log(this.folder);
-    console.log(this._data);
-    if(this._data.length){
-      let bpData=JSON.parse(JSON.stringify(this._data));;
-      this._dataBp=[...bpData];
-      this._isData=true;
-    }else{
-      this._isData=false;
-    }
+   
+  }
+  ngOnChanges(){
+    this.dataService.someProp.subscribe(res => {
+      if(this._data && this._data.length){
+        let bpData=JSON.parse(JSON.stringify(this._data));;
+        this._dataBp=[...bpData];
+        this._isData=true;
+        this._renderData=this._data;
+      }else{
+        this._isData=false;
+        this._renderData=[];
+      }
+    });
   }
   filter(value: any){
     let getData= this._dataBp;
@@ -54,14 +61,14 @@ export class CommonTemplateComponent implements OnInit {
       let filter = _Listings.filter(function (x) {
         return x.unread;
       });
-      this._data = filter.length?[...filter]:[]
+      this._renderData = filter.length?[...filter]:[]
     }else if(value == 'flagged'){
       let filter = _Listings.filter(function (x) {
         return x.flagged;
       });
-      this._data = filter.length?[...filter]:[]
+      this._renderData = filter.length?[...filter]:[]
     }else{
-      this._data = [...getData]
+      this._renderData = [...getData]
     }
   }
   previewFn(item){
@@ -93,15 +100,25 @@ export class CommonTemplateComponent implements OnInit {
     sortByDate(){
       this._isAsc= this._isAsc?false:true;
       if(this._isAsc){
-        this._data.sort((a, b) =>{const dateA:any = new Date(a.date);const dateB:any = new Date(b.date);return dateB - dateA});
+        this._renderData.sort((a, b) =>{const dateA:any = new Date(a.date);const dateB:any = new Date(b.date);return dateB - dateA});
       }else{
-        this._data.sort((a, b) =>{const dateA:any = new Date(a.date);const dateB:any = new Date(b.date);return dateA - dateB});
+        this._renderData.sort((a, b) =>{const dateA:any = new Date(a.date);const dateB:any = new Date(b.date);return dateA - dateB});
       }     
     }
     flagMsg(item,event){
       console.log("flag");
     }
     deleteMsg(item,event){
-      console.log("delete");
+      console.log(item);
+      this.dataService.getDeletedData =item; //push the data to existing array
+      let deleteObj=this.dataService.deletedData; //get the data from array
+      this.dataService.mailRData=deleteObj //set into storage
+
+      //update current mailbox
+      let $currentData =  this._renderData.filter(function(obj){
+        return obj.mId !== item.mId;              
+        });        
+         this.sendData.emit($currentData);
+         this.dataService.someProp.next('some value1');
     }
 }

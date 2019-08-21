@@ -27,7 +27,8 @@
            <ng-container *ngIf="_isData">
         <ul class="list-inline">
             <perfect-scrollbar style="max-height: 600px;" [config]="config">
-          <ng-container  *ngFor="let item of _data | filter:searchText" >
+             
+          <ng-container  *ngFor="let item of _renderData | filter:searchText" >
              
           <li class="rowitems" [ngClass]="{'active':isItem[item.mId],'clickActive':isPreviewItem[item.mId],'unread':item.unread}" (mouseleave)="mouseInActive(item,$event)" (mouseenter)="mouseActive(item,$event)" >
               <div *ngIf="isItem[item.mId] || isPreviewItem[item.mId]" class="custom-control checkbtn custom-checkbox mb-3">

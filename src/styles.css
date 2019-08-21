@@ -2,9 +2,8 @@
 @import url("assets/css/style.css");
 
 :root {
-    --primeColor: #ff9933;
-    --primeDarkColor: #f96a0e;
-    --carrot: #ee6142;
+    --primeColor: #004b8b;
+    --primeDarkColor: #004b8b;
     --blue      : #0e1833;
     --grey3     : #333333;
     --openSans: 'Open Sans', sans-serif;

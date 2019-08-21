@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from 'src/app/services/data-service.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-inbox',
@@ -13,11 +14,43 @@ export class InboxComponent implements OnInit {
   isItem=[];
   isPreviewItem: any=[];
   searchText;
-  constructor(private dataService:DataServiceService) { }
-
+  _ngxDefault: any=[];
+  constructor(private dataService:DataServiceService) {
+    this._ngxDefault.push(this.items[0].id);
+    console.log(this._ngxDefault)
+   }
+  public items= [{
+    "id":'all',
+    "name":'All'
+  },
+  {
+    "id":'flagged',
+    "name":'Flagged'
+  },
+  {
+    "id":'unread',
+    "name":'Unread'
+  }];
   ngOnInit() {
-      this.inBoxData=this.dataService.getInBoxData;
+      this.inBoxData=this.dataService.mailIData;
         
+  }
+  filter(value: any){
+    let getData= this.dataService.mailIData;
+    const _Listings = JSON.parse(JSON.stringify(getData));
+    if(value == 'unread'){
+      let filter = _Listings.filter(function (x) {
+        return x.unread;
+      });
+      this.inBoxData = filter.length?[...filter]:[]
+    }else if(value == 'flagged'){
+      let filter = _Listings.filter(function (x) {
+        return x.flagged;
+      });
+      this.inBoxData = filter.length?[...filter]:[]
+    }else{
+      this.inBoxData = [...getData]
+    }
   }
   previewFn(item){
     this.preview =true;
@@ -44,4 +77,8 @@ export class InboxComponent implements OnInit {
      }
    
    }
+   public doNgxDefault(): any {
+   
+        return this._ngxDefault;
+    }
 }

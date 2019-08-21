@@ -33,6 +33,7 @@
 }
 .subject{
     font-size: 12px;
+    position: relative;
 }
 .min-content{
     color: #666;
@@ -144,4 +145,34 @@ padding-left:10px
 .envelope{
     font-size: 12rem;
 
+}
+.subject .date{
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 9px;
+    font-weight: normal;
+}
+
+.min-header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 10px 10px 10px 30px;
+    border-bottom: 1px solid #eaeaea;
+    align-items: center;
+}
+.filterby {
+   width: 140px;
+    position: relative;
+}
+.filterby::before{
+    content:"Filter";
+    position: absolute;
+    left: -40px;
+    top: 3px;
+}
+.sortby p {
+    margin: 0;
+    line-height: 0;
 }

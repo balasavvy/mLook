@@ -28,6 +28,7 @@
     "ng2-search-filter": "^0.5.1",
     "ngx-bootstrap": "1.9.3",
     "ngx-perfect-scrollbar": "8.0.0",
+    "ngx-select-ex": "^3.7.2",
     "ngx-toastr": "6.4.1-beta.0",
     "ngx-webstorage-service": "^4.0.1",
     "rxjs": "~6.3.3",

@@ -4,7 +4,16 @@
   <section class="lists">
       <div class="search-box">
           <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Search Current Mailbox">
-        </div>
+       </div>
+       <div class="min-header">
+         <div class="sortby">
+           <p>Sort By Date</p>
+         </div>
+         <div class="filterby">
+            <ngx-select   [defaultValue]="_ngxDefault" [items]="items" (select)="filter($event)"></ngx-select>
+         </div>
+          
+       </div>
     <ul class="list-inline">
         <perfect-scrollbar style="max-height: 600px;" [config]="config">
       <ng-container  *ngFor="let item of inBoxData | filter:searchText" >
@@ -16,8 +25,14 @@
             </div>
         <div class="item-con" (click)="previewFn(item)">
             <div class="recipent-name"  [innerHTML]="item.name"></div>
-            <div class="subject"  [innerHTML]="item.subject"></div>
+            <div class="subject">
+              {{item.subject}}
+                <div class="date">
+                    {{item.date | date:'EEE dd/M H:mm'}}
+                </div>
+            </div>
             <div class="min-content"  [innerHTML]="item.content"></div>
+            
         </div>
        
       </li>

@@ -15,8 +15,14 @@ import { PerfectScrollbarModule, PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfi
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { CustomFolderComponent } from './custom/custom.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxSelectModule, INgxSelectOptions } from 'ngx-select-ex';
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   wheelPropagation: true
+};
+const CustomSelectOptions: INgxSelectOptions = { // Check the interface for more options
+  optionValueField: 'id',
+  optionTextField: 'name',
+  keepSelectedItems:true
 };
 @NgModule({
   declarations: [LayoutComponent, HeaderComponent, MainComponent, SidebarComponent, 
@@ -29,7 +35,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ModalModule.forRoot(),
     PerfectScrollbarModule,
     FormsModule,
-    Ng2SearchPipeModule  
+    Ng2SearchPipeModule ,
+    NgxSelectModule.forRoot(CustomSelectOptions)
   ],
   exports: [
     LayoutComponent

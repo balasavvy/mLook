@@ -72,6 +72,7 @@
 .search-box {
     padding: 20px 10px 10px 0px;
     padding-left: 30px;
+    
 }
 .split-right {
     padding: 20px;
@@ -163,7 +164,7 @@ padding-left:10px
     align-items: center;
 }
 .filterby {
-   width: 140px;
+   width: 130px;
     position: relative;
 }
 .filterby::before{
@@ -175,4 +176,7 @@ padding-left:10px
 .sortby p {
     margin: 0;
     line-height: 0;
+}
+.sortby i{
+    color:#F44336
 }

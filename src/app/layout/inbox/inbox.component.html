@@ -7,7 +7,7 @@
        </div>
        <div class="min-header">
          <div class="sortby">
-           <p>Sort By Date</p>
+           <p (click)="sortByDate()">Sort By Date <i [ngClass]="{'fa-long-arrow-alt-down':_isAsc,'fa-long-arrow-alt-up':!_isAsc}" class="fas "></i></p>
          </div>
          <div class="filterby">
             <ngx-select   [defaultValue]="_ngxDefault" [items]="items" (select)="filter($event)"></ngx-select>

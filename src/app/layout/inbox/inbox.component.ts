@@ -15,9 +15,9 @@ export class InboxComponent implements OnInit {
   isPreviewItem: any=[];
   searchText;
   _ngxDefault: any=[];
+  _isAsc =true;
   constructor(private dataService:DataServiceService) {
     this._ngxDefault.push(this.items[0].id);
-    console.log(this._ngxDefault)
    }
   public items= [{
     "id":'all',
@@ -77,8 +77,13 @@ export class InboxComponent implements OnInit {
      }
    
    }
-   public doNgxDefault(): any {
-   
-        return this._ngxDefault;
+  
+    sortByDate(){
+      this._isAsc= this._isAsc?false:true;
+      if(this._isAsc){
+        this.inBoxData.sort((a, b) =>{const dateA:any = new Date(a.date);const dateB:any = new Date(b.date);return dateB - dateA});
+      }else{
+        this.inBoxData.sort((a, b) =>{const dateA:any = new Date(a.date);const dateB:any = new Date(b.date);return dateA - dateB});
+      }     
     }
 }

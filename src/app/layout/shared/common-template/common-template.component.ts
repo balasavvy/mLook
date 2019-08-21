@@ -89,7 +89,11 @@ export class CommonTemplateComponent implements OnInit,OnChanges {
     this.isPreviewItem[item.mId]=true;
   }
   renderItem(item: any) {
-   this.displayView = item
+    item.unread =false;
+   this.displayView = item;
+   this.sendReadData.emit( this._renderData);
+   this.dataService.someProp.next('some value1');
+
   }
   mouseActive(item,event){
     this.isItem[item.mId]=true;

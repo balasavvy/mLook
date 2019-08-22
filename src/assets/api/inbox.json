@@ -4,8 +4,8 @@
 		"unread": true,
 		"flagged":false,
 		"date":"2018-05-27 03:00:00.0",
-		"name" : "ThulasiThulasiThulasiThulasiThulasi",
-		"sn":"TR",
+		"name" : "Marian Wright Edelman",
+		"sn":"MW",
 		"subject" : "Training Program",
 		"content" : "About Microsoft Virtual Academy<br/>Microsoft Virtual Academy provides free online training by world-class experts to help you build your technical skills and advance your career. Make it your destination of choice to get started on the latest Microsoft technologies and join this vibrant community."
 	},
@@ -13,8 +13,8 @@
 		"mId": "guid-2",
 		"unread": false,
 		"flagged":false,
-		"name" : "Thulasi1",
-		"date":"2018-05-27 03:30:00.0",
+		"name" : "Thomas Edison",
+		"date":"2018-05-27 02:30:00.0",
 		"sn":"TR",
 		"subject" : "Empower your future",
 		"content" : "We foster our pipeline of future leaders with 47 employee networks and 7 global employee resource groups, servicing an active community of thousands across Microsoft"
@@ -22,20 +22,20 @@
 	{
 		"mId": "guid-3",
 		"unread": false,
-		"flagged":true,
-		"name" : "Thulasi2",		
-		"date":"2018-05-27 01:30:00.0",
-		"sn":"TR",
+		"flagged":false,
+		"name" : "Andrew Jackson",		
+		"date":"2018-04-27 10:30:00.0",
+		"sn":"AJ",
 		"subject" : "Empower your future",
 		"content" : "We foster our pipeline of future leaders with 47 employee networks and 7 global employee resource groups, servicing an active community of thousands across Microsoft"
 	},	
 	{
 		"mId": "guid-8",
 		"unread": false,
-		"flagged":true,
-		"name" : "Thulasi2",		
-		"date":"2018-05-27 01:30:00.0",
-		"sn":"TR",
+		"flagged":false,
+		"name" : "Henry David Thoreau",		
+		"date":"2018-05-17 01:30:00.0",
+		"sn":"HD",
 		"subject" : "Empower your future",
 		"content" : "We foster our pipeline of future leaders with 47 employee networks and 7 global employee resource groups, servicing an active community of thousands across Microsoft"
 	}
@@ -43,10 +43,10 @@
 	{
 		"mId": "guid-9",
 		"unread": false,
-		"flagged":true,
-		"name" : "Thulasi2",		
+		"flagged":false,
+		"name" : "Napoleon Bonaparte",		
 		"date":"2018-05-27 01:30:00.0",
-		"sn":"TR",
+		"sn":"NB",
 		"subject" : "Empower your future",
 		"content" : "We foster our pipeline of future leaders with 47 employee networks and 7 global employee resource groups, servicing an active community of thousands across Microsoft"
 	}
@@ -54,51 +54,51 @@
 	{
 		"mId": "guid-31",
 		"unread": false,
-		"flagged":true,
-		"name" : "Thulasi2",		
-		"date":"2018-05-27 01:30:00.0",
-		"sn":"TR",
+		"flagged":false,
+		"name" : "Helen Keller",		
+		"date":"2019-01-27 01:30:00.0",
+		"sn":"HK",
 		"subject" : "Empower your future",
 		"content" : "We foster our pipeline of future leaders with 47 employee networks and 7 global employee resource groups, servicing an active community of thousands across Microsoft"
 	},	
 	{
 		"mId": "guid-33",
-		"unread": false,
-		"flagged":true,
-		"name" : "Thulasi2",		
-		"date":"2018-05-27 01:30:00.0",
-		"sn":"TR",
+		"unread": true,
+		"flagged":false,
+		"name" : "Abraham Maslow",		
+		"date":"2019-05-11 01:30:00.0",
+		"sn":"AM",
 		"subject" : "Empower your future",
 		"content" : "We foster our pipeline of future leaders with 47 employee networks and 7 global employee resource groups, servicing an active community of thousands across Microsoft"
 	},	
 	{
 		"mId": "guid-133",
 		"unread": false,
-		"flagged":true,
-		"name" : "Thulasi2",		
-		"date":"2018-05-27 01:30:00.0",
-		"sn":"TR",
-		"subject" : "Empower your future",
-		"content" : "We foster our pipeline of future leaders with 47 employee networks and 7 global employee resource groups, servicing an active community of thousands across Microsoft"
+		"flagged":false,
+		"name" : "Japanese Proverb",		
+		"date":"2018-05-17 01:30:00.0",
+		"sn":"JP",
+		"subject" : "Fall seven times, stand up eight",
+		"content" : "Hope this mail finds you in the best of your time. I am very happy to invite you to my birthday party on Nov 03 at ABC Hotel from 7:00 pm to 10:00 pm. <br/>The theme of the birthday party is ‘Pirate of the Caribbean.It would be great if you come and join us at the party. We will have a great time and fun together."
 	},	
 	{
 		"mId": "guid-323",
 		"unread": false,
 		"flagged":true,
-		"name" : "Thulasi2",		
-		"date":"2018-05-27 01:30:00.0",
-		"sn":"TR",
-		"subject" : "Empower your future",
-		"content" : "We foster our pipeline of future leaders with 47 employee networks and 7 global employee resource groups, servicing an active community of thousands across Microsoft"
+		"name" : "Eliza Dushku",		
+		"date":"2018-08-27 04:30:00.0",
+		"sn":"ED",
+		"subject" : "Go Big, or Go Home",
+		"content" : "New Delhi:Rajiv Gauba, currently secretary in the ministry of home affairs, will be Indias new cabinet secretary - the most powerful position in the countrys civil service.\r\nAn Indian Administrative Service (IAS) officer of the 1982 Jharkhand batch."
 	},	
 	{
 		"mId": "guid-433",
-		"unread": false,
-		"flagged":true,
-		"name" : "Thulasi2",		
-		"date":"2018-05-27 01:30:00.0",
-		"sn":"TR",
-		"subject" : "Empower your future",
-		"content" : "We foster our pipeline of future leaders with 47 employee networks and 7 global employee resource groups, servicing an active community of thousands across Microsoft"
+		"unread": true,
+		"flagged":false,
+		"name" : "Victor Cousins",		
+		"date":"2019-07-27 06:30:00.0",
+		"sn":"VC",
+		"subject" : "No man was ever wise by chance",
+		"content" : "Computer Slime Sticky Keys [Self-Released; 2019] Rating: 3.5/5 i don’t even have fucking cool air conditioning in my apartment, and Mr P is a son-of-a-shit. he has complete curator control over this website, you know? (btw, i’m tryna stop saying “right?"
 	}
 ]

@@ -45,7 +45,7 @@
     </div>
     <div class="row mt15 justify-content-center">
       <div class="col-12 text-center">
-        <form name="form" (ngSubmit)="f.form.valid && onSubmit($event)" #f="ngForm" novalidate>
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit($event);f.resetForm()" #f="ngForm" novalidate>
           <div class="form-group">
             <!-- <label for="folderName">Folder Name</label> -->
             <input type="text" class="form-control" name="folderName" [(ngModel)]="model.folderName"

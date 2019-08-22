@@ -39,7 +39,8 @@
 
 .item-con {
   color: #333;
-  line-height: 20px
+  line-height: 20px;
+  cursor: default
 }
 
 .subject {
@@ -199,6 +200,7 @@ li.rowitems.unread {
 }
 
 .min-header {
+  cursor: default;
   display: flex;
   justify-content: space-between;
   flex-direction: row;

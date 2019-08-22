@@ -31,7 +31,8 @@ header {
 }
 
 .rightTopNav li.nav-item {
-  min-width: 48px
+  min-width: 48px;
+  cursor: pointer;
 }
 
 .rightTopNav .navbar-nav {

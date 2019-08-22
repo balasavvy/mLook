@@ -1,5 +1,5 @@
 .leftSidebar .item {
-
+  cursor: default;
   width: 100%
 }
 
@@ -11,7 +11,7 @@
 }
 
 .leftSidebar .item .list-group-item.active {
-  background-color: #A9C1D6 !important;
+  background-color:  var(--primeDarkColor) !important;
   color: #333;
   font-weight: bold;
   font-size: 13px
@@ -25,7 +25,7 @@
   display: block !important
 }
 span.count {
-  color: #004B8B;
+  color: var(--primeColor);
   position: absolute;
   right: 10%;
   font-weight: bold

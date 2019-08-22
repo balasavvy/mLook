@@ -3,9 +3,11 @@
 
 :root {
   --primeColor: #004b8b;
-  --primeDarkColor: #004b8b;
+  --secondaryColor:#eaeaea;
+  --primeDarkColor: #A9C1D6;
   --blue: #0e1833;
-  --grey3: #333333;
+  --grey: #666;
+  --greyDark: #333;
   --openSans: 'Open Sans', sans-serif;
   --sohoR: 'SohoPro-Regular';
   --sohoL: 'SohoPro-Light';
@@ -17,7 +19,6 @@
 .f-family-sohoR {
   font-family: var(--sohoR);
 }
-
 
 .f-family-sohoL {
   font-family: var(--sohoL);
@@ -79,4 +80,12 @@ html {
 
 .btn-default {
   background: #eaeaea
+}
+
+.min-content br {
+  content: ' ';
+}
+
+.min-content br:after {
+  content: ' ';
 }

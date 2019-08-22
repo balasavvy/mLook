@@ -10,9 +10,9 @@
         <li class="list-inline-item" *ngIf="!enableAllOptions" (click)="markread($event)">
           <i class="fas fa-envelope-open"></i>&nbsp;Mark As Read</li>
         <li class="list-inline-item" *ngIf="enableAllOptions" (click)="markunread($event)">
-          <i class="fas fa-envelope"></i>&nbsp;Mark All As UnRead</li>
+          <i class="fas fa-envelope"></i>&nbsp;Mark All As Unread</li>
         <li class="list-inline-item" *ngIf="!enableAllOptions" (click)="markunread($event)">
-          <i class="fas fa-envelope"></i>&nbsp;Mark As UnRead</li>
+          <i class="fas fa-envelope"></i>&nbsp;Mark As Unread</li>
         <li class="list-inline-item dropdown">
           <div class="dropdown-toggle" id="navbardrop" data-toggle="dropdown">
             Move To
@@ -86,7 +86,7 @@
                     <div class="subject">
                       {{item.subject}}
                       <div class="date">
-                        {{item.date | date:'EEE dd/M H:mm'}}
+                        {{item.date | date:'EEE dd/M/yy H:mm'}}
                       </div>
                     </div>
                     <div class="min-content" [innerHTML]="item.content"></div>

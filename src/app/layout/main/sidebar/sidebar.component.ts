@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import * as $ from 'jquery';
 import {CustomFolderComponent } from '../../custom/custom.component';
 import { DataServiceService } from 'src/app/services/data-service.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -22,50 +23,71 @@ export class SidebarComponent implements OnInit,OnChanges {
   IboxUnreadCount: any;
   SboxUnreadCount: any;
   DboxUnreadCount: any;
-  constructor(private dataService:DataServiceService,private modalService: BsModalService,private renderer: Renderer2,private router:Router) { }
+  _isCustom: boolean;
+  _customData: any;
+  constructor(private toastr: ToastrService,private dataService:DataServiceService,private modalService: BsModalService,private renderer: Renderer2,private router:Router) { }
 
   ngOnInit() {
+    
     this.dataService.someProp.subscribe(res => {
       this.IboxUnreadCount = this.dataService.IunreadCount().length;
       this.SboxUnreadCount = this.dataService.SunreadCount().length;
       this.DboxUnreadCount = this.dataService.DunreadCount().length;
+      if(this.dataService.mailCData.length){
+        this._isCustom=true;
+        this._customData=this.dataService.mailCData;
+        for(let i=0;i<this._customData.length;i++){
+          this.router.config.unshift({
+            path: this._customData[i].path  ,
+            component: CustomFolderComponent
+          });
+        }
+      }
     });
   }
   ngOnChanges() {
-
+    
+      
   }
   showFolders() {
     this.isFolder = this.isFolder ? false : true;
   }
   newFolder() {
-
+    //this.model.folderName='';
     this.modalRef = this.modalService.show(this.newfolder, this.config);
   }
   onSubmit(event) {
-
-    const li: HTMLDListElement = this.renderer.createElement('li');
-    li.innerHTML = this.model.folderName;
-    li.className = "list-group-item customLink";
-    li.setAttribute("routerLink", this.model.folderName);
-    this.renderer.appendChild(this.custom.nativeElement, li);
-    this.router.config.unshift({
+   
+    let folderName=this.model.folderName;
+    let dataObj={
+      path:folderName
+    }
+   if(this.dataService.mailCData.length){
+      this.dataService.customDataArray = this.dataService.mailCData;
+      this.dataService.CustomData = dataObj; 
+      let obj = this.dataService.customDataArray; //get the data from array
+      this.dataService.mailCData = obj //set into storage  
+    }else{
+      this.dataService.CustomData = dataObj; //push the data to existing array
+      let obj = this.dataService.customDataArray; //get the data from array
+      this.dataService.mailCData = obj //set into storage  
+      
+    }
+    if(this.dataService.mailCData){
+    this._isCustom=true;
+    this._customData=this.dataService.mailCData
+    }
+   this.router.config.unshift({
       path: this.model.folderName,
       component: CustomFolderComponent
     });
-
+  
     if (this.modalRef) {
       this.modalRef.hide();
     }
-    this.renderEvents();
+    this.toastr.success("New Folder Created!");
   }
-  renderEvents() {
-    let self = this;
-    $('.customLink').on("click", function () {
-      var $this = $(this);
-      let thisRouteLink = $this.attr("routerLink");
-      self.router.navigate([thisRouteLink]);
-    })
-  }
+
   hide() {
     if (this.modalRef) {
       this.modalRef.hide();

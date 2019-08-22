@@ -111,11 +111,9 @@ export class CommonTemplateComponent implements OnInit, OnChanges, AfterViewInit
   }
   mouseActive(item, event) {
     this.isItem[item.mId] = true;
-    console.log(this.isItem[item.mId])
   }
   mouseInActive(item, event) {
     this.isItem[item.mId] = false;
-    console.log(this.isItem[item.mId])
   }
   checkValue(item, event) {
     if (event.target.checked) {
@@ -163,7 +161,6 @@ export class CommonTemplateComponent implements OnInit, OnChanges, AfterViewInit
     }
   }
   flagMsg(item, event) {
-    console.log("flag");
     this._renderData.forEach((obj, i) => {
       if (obj.mId == item.mId) {
         obj.flagged = obj.flagged ? false : true
@@ -235,6 +232,8 @@ export class CommonTemplateComponent implements OnInit, OnChanges, AfterViewInit
 
     this.sendReadData.emit(this._renderData);
     this.dataService.someProp.next('some value1');
+    this.enableAllOptions = false;
+    this.enableOptions = false;
   }
   markunread(event) {
     this.folder == 'inbox' ? this._renderData = this.dataService.mailIData : this.folder == 'spam' ? this._renderData = this.dataService.mailSData : this._renderData = this.dataService.mailRData;
@@ -249,6 +248,8 @@ export class CommonTemplateComponent implements OnInit, OnChanges, AfterViewInit
     }
     this.sendReadData.emit(this._renderData);
     this.dataService.someProp.next('some value1');
+    this.enableAllOptions = false;
+    this.enableOptions = false;
   }
   moveToInbox(event) {
     let checkedlist = this.checkedList;
@@ -274,6 +275,8 @@ export class CommonTemplateComponent implements OnInit, OnChanges, AfterViewInit
     this.dataService.someProp.next('some value1');
     this.masterSelected = false;
     this.toastr.success("Moved to Inbox Successfully!");
+    this.enableAllOptions = false;
+    this.enableOptions = false;
   }
   moveToSpam(event) {
     let checkedlist = this.checkedList;
@@ -300,5 +303,7 @@ export class CommonTemplateComponent implements OnInit, OnChanges, AfterViewInit
     this.dataService.someProp.next('some value1');
     this.masterSelected = false;
     this.toastr.success("Moved to Spam Successfully!");
+    this.enableAllOptions = false;
+    this.enableOptions = false;
   }
 }

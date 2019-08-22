@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from 'src/app/services/data-service.service';
-import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-inbox',
   templateUrl: './inbox.component.html',
@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 export class InboxComponent implements OnInit {
   inBoxData: any;
  
-  constructor(private toastr: ToastrService,private dataService:DataServiceService) {
+  constructor(private dataService:DataServiceService) {
   
    }
 

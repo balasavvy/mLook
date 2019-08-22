@@ -18,10 +18,12 @@ export class DataServiceService {
    if(this.deletedDataJson){
     this.storage.set("deletedData",[...this.deletedDataJson])
    }
+   
   }
   inboxDataJson: any = InboxData;
   spamDataJson: any = SpamData;
   deletedDataJson: any=[];
+  customDataArray: any=[];
   inboxData: any=[];
   spamData: any=[];
   deletedData: any=[];
@@ -31,6 +33,12 @@ export class DataServiceService {
       if(!this.mailIData && !this.mailSData && !this.mailRData  ){
         this.init()
       }
+      if(!this.mailCData){
+        this.storage.set("customDataArray",this.customDataArray)
+      }else{
+        this.CustomData =this.mailCData
+      }
+      
     });   
   }
 
@@ -53,6 +61,19 @@ export class DataServiceService {
   }
   get getDeletedData() {
     return this.deletedData;
+  }
+
+  set CustomData(val) {
+    this.customDataArray.push(val);
+  }
+  get CustomData() {
+    return this.customDataArray;
+  }
+  get mailCData() {
+    return this.storage.get("customDataArray");
+  }
+  set mailCData(data) {
+    this.storage.set("customDataArray", data)
   }
   clear() {
     this.storage.clear();

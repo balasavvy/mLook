@@ -21,10 +21,12 @@
             <div *ngIf="this.folder !== 'inbox'" class="dropdown-item" (click)="moveToInbox($event)">Inbox</div>
             <div *ngIf="this.folder !== 'spam'" class="dropdown-item" (click)="moveToSpam($event)">Spam</div>
           </div>
-
+          
         </li>
-        <li class="list-inline-item" *ngIf="enableAllOptions" (click)="deleteOption($event)">Delete All</li>
-        <li class="list-inline-item" *ngIf="!enableAllOptions" (click)="deleteOption($event)">Delete</li>
+        <li class="list-inline-item" *ngIf="enableAllOptions" (click)="deleteOption($event)">
+          <i class="fas fa-trash"></i>&nbsp;Delete All</li>
+        <li class="list-inline-item" *ngIf="!enableAllOptions" (click)="deleteOption($event)">
+            <i class="fas fa-trash"></i>&nbsp;Delete</li>
       </ul>
 
     </div>
